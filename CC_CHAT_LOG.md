@@ -1,8 +1,18 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.1 — 2026-11-10
-> Changes: CC_SESSION_saycheer_page_v1 entry added
-> Previous: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
+> Version 1.2 — 2026-11-10
+> Changes: CC_SESSION_saycheer_design_v2 entry added
+> Previous: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
 
+---
+
+## 2026-11-10 — CC_SESSION_saycheer_design_v2
+**Did:** Redesign, 5 files: index.html (EN), th/index.html (TH), style.css (rewritten), PROJECT_STATE, this log. New structure: sticky top bar (wordmark, section links, language, quotation button; CSS-only menu on phones), hero with two-part H1, dark "Working today" band, six alternating rows with big numerals, "Why SayCheer" with statement list + places line, six-question FAQ (`<details>`), dark closing band, three-column footer. Head block unchanged (titles 57 / 56, descriptions 150 / 141; hreflang byte-identical). No JS, no new picture, no new third-party resource.
+**Updated:** NONE (no rules in this repo)
+**New files:** NONE
+**Pending Chat verify:** owner QA steps 1–5 on the site PR; Thai wording (new Thai texts in this order are copied exactly from the order).
+**Flags:** QA CARRY-OVER: saycheer-website#1 and saycheer-website#2 (owner reported PASS in chat 2026-11-10; ticks to be confirmed on the PR). NOT VERIFIED LIVE — owner QA steps 1–5. Order vs AA conflict, resolved toward AA: the SEO line above the headline is ink with a teal bar (not teal text: about 2.3:1 on cream); the handwriting tag lines are ink (peach text only on ink). Peach numerals, bars and the FAQ marker on light backgrounds are decorative. On phones the buttons sit directly under the headline and the paragraph under the picture (visual order differs from source order) so the picture and the first button are both visible on 390 x 844. Checks: all Section 3 strings present (18 EN + 18 TH checked); forbidden grep — one hit, "first" in the order's own closing line ("try a test card first"); hex audit clean; both HTML files 168 lines; render at 360 / 390 x 844 / 1280 px: no horizontal scroll, bar sticks, FAQ and menu open / close, anchors land below the bar (hero picture blocked in the sandbox, so the picture itself was not seen).
+**Previous PR QA:** saycheer-website#2 PENDING — QA CARRY-OVER
+**Owner QA:** this order's site PR PENDING (steps 1–5)
 ---
 
 ## 2026-11-10 — CC_SESSION_saycheer_page_v1

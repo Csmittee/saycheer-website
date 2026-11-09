@@ -29,90 +29,140 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap bar">
+  <header class="bar">
+    <div class="wrap bar-in">
       <a class="wordmark" href="/" aria-label="SayCheer"><span class="w-say">Say</span><span class="w-cheer">Cheer</span><span class="w-spark" aria-hidden="true">+</span></a>
-      <a class="lang" href="/th/" hreflang="th" lang="th">ไทย</a>
+      <nav class="links" aria-label="Sections"><a href="#how">How it works</a><a href="#why">Why SayCheer</a><a href="#faq">Questions</a></nav>
+      <a class="lang lang-bar" href="/th/" hreflang="th" lang="th">ไทย</a>
+      <a class="btn btn-primary btn-bar" href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request&amp;body=Place%20or%20event%20type%3A%0D%0ACity%3A%0D%0ADate%20%28if%20an%20event%29%3A%0D%0AMy%20name%20and%20phone%20or%20email%3A">Request a quotation</a>
+      <details class="menu">
+        <summary>Menu</summary>
+        <div class="menu-panel"><a href="#how">How it works</a><a href="#why">Why SayCheer</a><a href="#faq">Questions</a><a class="lang" href="/th/" hreflang="th" lang="th">ไทย</a></div>
+      </details>
     </div>
   </header>
   <main>
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="hero-text">
+        <div class="hero-head">
           <p class="hand hand-en">Say cheer!</p>
-          <h1>SayCheer photo booth by Janishammer</h1>
-          <p class="lead">Your guests pose. The booth prints the memory.</p>
-          <p>SayCheer is a self-service photo booth for cafés, restaurants, hotels and events. Friends and families pose together, decorate their photos and take the printed card home.</p>
-          <div class="btns">
-          <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request&amp;body=Place%20or%20event%20type%3A%0D%0ACity%3A%0D%0ADate%20%28if%20an%20event%29%3A%0D%0AMy%20name%20and%20phone%20or%20email%3A">Request a quotation</a>
-          <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">Try the demo</a>
-          <p class="small">The demo runs in your browser with test money.</p></div>
-        </div>
+          <h1><span class="h1-brand">SayCheer photo booth by Janishammer</span><span class="h1-line">Your guests pose. The booth prints the memory.</span></h1>
         </div>
         <figure class="hero-pic">
           <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1794246489/Business/Saycheer/website_generated/event_entrance_asean_v2.jpg" width="1200" height="896" loading="eager" fetchpriority="high" alt="A group of friends posing in front of a SayCheer photo booth at an event entrance (AI-generated concept image)">
           <figcaption class="small">AI-generated concept image based on the actual product. Details may vary.</figcaption>
         </figure>
+        <p class="hero-text">SayCheer is a self-service photo booth for cafés, restaurants, hotels and events. Friends and families pose together, decorate their photos and take the printed card home.</p>
+        <div class="hero-cta">
+          <div class="btns">
+            <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request&amp;body=Place%20or%20event%20type%3A%0D%0ACity%3A%0D%0ADate%20%28if%20an%20event%29%3A%0D%0AMy%20name%20and%20phone%20or%20email%3A">Request a quotation</a>
+            <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">Try the demo</a>
+            <p class="small">The demo runs in your browser with test money.</p></div>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="how">
+    <section class="band band-ink band-work">
+      <div class="wrap">
+        <h2>Working today</h2>
+        <ul class="work">
+          <li>Card layouts with 1 to 4 photos</li>
+          <li>Camera with a countdown</li>
+          <li>Arrange and decorate every print</li>
+          <li>Print progress on screen</li>
+          <li>Thai screens with an English option</li>
+        </ul>
+        <p class="small">All of this runs in the live demo.</p>
+      </div>
+    </section>
+    <section class="how" id="how">
       <div class="wrap">
         <h2>How it works</h2>
         <p class="hand hand-en">Six easy steps</p>
-        <ol class="steps">
-          <li><h3>Choose</h3><p>Pick a card layout and how many cards to print.</p></li>
-          <li><h3>Pay</h3><p>Scan a PromptPay QR code. PromptPay QR payment can be added to your booth; the demo uses test money.</p></li>
-          <li><h3>Pose</h3><p>A live camera view and a countdown take the photos.</p></li>
-          <li><h3>Arrange</h3><p>Drag the photos onto the cards.</p></li>
-          <li><h3>Decorate</h3><p>Add text, drawings, stickers and filters to every print.</p></li>
-          <li><h3>Print</h3><p>The cards are printed at the booth.</p></li>
+        <ol class="rows">
+        <li class="row">
+          <span class="num" aria-hidden="true">01</span>
+          <div class="row-text"><h3>Choose</h3><p>Pick a card layout and how many cards to print.</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">02</span>
+          <div class="row-text"><h3>Pay</h3><p>Scan a PromptPay QR code. PromptPay QR payment can be added to your booth; the demo uses test money.</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">03</span>
+          <div class="row-text"><h3>Pose</h3><p>A live camera view and a countdown take the photos.</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">04</span>
+          <div class="row-text"><h3>Arrange</h3><p>Drag the photos onto the cards.</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">05</span>
+          <div class="row-text"><h3>Decorate</h3><p>Add text, drawings, stickers and filters to every print.</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">06</span>
+          <div class="row-text"><h3>Print</h3><p>The cards are printed at the booth.</p></div>
+        </li>
         </ol>
       </div>
     </section>
-    <section class="why">
+    <section class="why" id="why">
       <div class="wrap">
         <h2>Why SayCheer</h2>
         <p class="hand hand-en">Made for places people love</p>
-        <div class="cards">
-          <div class="card"><h3>Decorate every print</h3><p>Text, drawing, stickers and filters, on every card.</p></div>
-          <div class="card"><h3>Your own look</h3><p>Your name, logo and colours can be added for your shop.</p></div>
-          <div class="card"><h3>Pay by PromptPay</h3><p>PromptPay QR payment can be added.</p></div>
-          <div class="card"><h3>Made for groups</h3><p>Designed for 1 to 10 people in one session.</p></div>
+        <div class="reasons">
+          <div class="reason"><h3>Decorate every print</h3><p>Text, drawing, stickers and filters, on every card.</p></div>
+          <div class="reason"><h3>Your own look</h3><p>Your name, logo and colours can be added for your shop.</p></div>
+          <div class="reason"><h3>Pay by PromptPay</h3><p>PromptPay QR payment can be added.</p></div>
+          <div class="reason"><h3>Made for groups</h3><p>Designed for 1 to 10 people in one session.</p></div>
         </div>
+        <h3 class="fit-h">Where SayCheer fits</h3>
+        <p class="fit">Cafés · Restaurants · Pubs and bars · Weddings · Exhibitions and events · Hotels and resorts · Spas · Lifestyle places</p>
       </div>
     </section>
-    <section class="fit">
+    <section class="faq" id="faq">
       <div class="wrap">
-        <h2>Where SayCheer fits</h2>
-        <ul class="chips">
-          <li>Cafés</li>
-          <li>Restaurants</li>
-          <li>Pubs and bars</li>
-          <li>Weddings</li>
-          <li>Exhibitions and events</li>
-          <li>Hotels and resorts</li>
-          <li>Spas</li>
-          <li>Lifestyle places</li>
-        </ul>
+        <h2>Questions</h2>
+        <details class="qa"><summary>What size are the prints?</summary><p>The card is designed as a 6 x 4 inch postcard for every layout.</p></details>
+        <details class="qa"><summary>How many people fit in a photo?</summary><p>SayCheer is designed for groups of 1 to 10 people.</p></details>
+        <details class="qa"><summary>How do guests pay?</summary><p>By scanning a PromptPay QR code. This can be added to your booth; the demo uses test money.</p></details>
+        <details class="qa"><summary>Are the photos stored?</summary><p>Photos stay in the booth's memory during the session and are discarded when it ends.</p></details>
+        <details class="qa"><summary>Which languages do the screens use?</summary><p>Thai, with an English option.</p></details>
+        <details class="qa"><summary>Can it carry my shop's look?</summary><p>Your name, logo and colours can be added for your shop.</p></details>
       </div>
     </section>
-    <section class="try">
+    <section class="band band-ink band-cta">
       <div class="wrap">
-        <h2>Try it, then ask us</h2>
-        <p>Open the demo and take a test photo card yourself. Tell us about your place and we will send a quotation by email. Hardware details are available on request.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request&amp;body=Place%20or%20event%20type%3A%0D%0ACity%3A%0D%0ADate%20%28if%20an%20event%29%3A%0D%0AMy%20name%20and%20phone%20or%20email%3A">Request a quotation</a>
-          <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">Try the demo</a>
-          <p class="small">The demo runs in your browser with test money.</p></div>
-        </div>
+        <h2>Ready for your place?</h2>
+        <p class="cta-line">Tell us where you would put it and we will send a quotation by email. Open the demo and try a test card first.</p>
+        <div class="btns btns-dark">
+            <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request&amp;body=Place%20or%20event%20type%3A%0D%0ACity%3A%0D%0ADate%20%28if%20an%20event%29%3A%0D%0AMy%20name%20and%20phone%20or%20email%3A">Request a quotation</a>
+            <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">Try the demo</a>
+            <p class="small">The demo runs in your browser with test money.</p></div>
+          </div>
+        <p class="small">Hardware details are available on request.</p>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>SayCheer is a product of Janishammer (Janis Hammer Co., Ltd), Chonburi, Thailand.</p>
-      <p class="small">© 2026 Janishammer</p>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/" aria-label="SayCheer"><span class="w-say">Say</span><span class="w-cheer">Cheer</span><span class="w-spark" aria-hidden="true">+</span></a>
+        <p>by Janishammer</p>
+        <p class="small">SayCheer is a product of Janishammer (Janis Hammer Co., Ltd), Chonburi, Thailand.</p>
+      </div>
+      <div class="foot-col">
+        <h3>Explore</h3>
+        <a href="#how">How it works</a><a href="#why">Why SayCheer</a><a href="#faq">Questions</a>
+      </div>
+      <div class="foot-col">
+        <h3>Contact</h3>
+        <a href="mailto:info@janishammer.com?subject=SayCheer%20quotation%20request">info@janishammer.com</a>
+        <a href="https://janishammer.com/">janishammer.com</a>
+      </div>
     </div>
+    <div class="wrap foot-bottom"><p class="small">© 2026 Janishammer</p></div>
   </footer>
 </body>
 </html>

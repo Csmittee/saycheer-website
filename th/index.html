@@ -29,90 +29,140 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap bar">
+  <header class="bar">
+    <div class="wrap bar-in">
       <a class="wordmark" href="/th/" aria-label="SayCheer"><span class="w-say">Say</span><span class="w-cheer">Cheer</span><span class="w-spark" aria-hidden="true">+</span></a>
-      <a class="lang" href="/" hreflang="en" lang="en">EN</a>
+      <nav class="links" aria-label="Sections"><a href="#how">ใช้งานอย่างไร</a><a href="#why">ทำไมต้อง SayCheer</a><a href="#faq">คำถามที่พบบ่อย</a></nav>
+      <a class="lang lang-bar" href="/" hreflang="en" lang="en">EN</a>
+      <a class="btn btn-primary btn-bar" href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer&amp;body=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%B2%E0%B8%99%3A%0D%0A%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%3A%0D%0A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%20%28%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B9%8C%29%3A%0D%0A%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B8%E0%B8%93%3A">ขอใบเสนอราคา</a>
+      <details class="menu">
+        <summary>เมนู</summary>
+        <div class="menu-panel"><a href="#how">ใช้งานอย่างไร</a><a href="#why">ทำไมต้อง SayCheer</a><a href="#faq">คำถามที่พบบ่อย</a><a class="lang" href="/" hreflang="en" lang="en">EN</a></div>
+      </details>
     </div>
   </header>
   <main>
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="hero-text">
+        <div class="hero-head">
           <p class="hand hand-th">ยิ้มให้กล้อง!</p>
-          <h1>SayCheer โฟโต้บูธโดย Janishammer</h1>
-          <p class="lead">ให้แขกของคุณโพสต์ท่า แล้วให้ตู้พิมพ์ความทรงจำ</p>
-          <p>SayCheer คือโฟโต้บูธบริการตนเองสำหรับคาเฟ่ ร้านอาหาร โรงแรม และงานอีเวนต์ เพื่อนและครอบครัวถ่ายรูปรวมกัน ตกแต่งภาพ และรับการ์ดที่พิมพ์ออกมากลับบ้าน</p>
-          <div class="btns">
-          <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer&amp;body=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%B2%E0%B8%99%3A%0D%0A%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%3A%0D%0A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%20%28%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B9%8C%29%3A%0D%0A%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B8%E0%B8%93%3A">ขอใบเสนอราคา</a>
-          <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">ลองใช้เดโม</a>
-          <p class="small">เดโมทำงานบนเบราว์เซอร์ด้วยเงินทดลอง</p></div>
-        </div>
+          <h1><span class="h1-brand">SayCheer โฟโต้บูธโดย Janishammer</span><span class="h1-line">ให้แขกของคุณโพสต์ท่า แล้วให้ตู้พิมพ์ความทรงจำ</span></h1>
         </div>
         <figure class="hero-pic">
           <img src="https://res.cloudinary.com/dfiomi0lb/image/upload/v1794246489/Business/Saycheer/website_generated/event_entrance_asean_v2.jpg" width="1200" height="896" loading="eager" fetchpriority="high" alt="กลุ่มเพื่อนโพสต์ท่าหน้าตู้โฟโต้บูธ SayCheer ที่ทางเข้างานอีเวนต์ (ภาพจำลองที่สร้างด้วย AI)">
           <figcaption class="small">ภาพจำลองที่สร้างด้วย AI อ้างอิงจากสินค้าจริง รายละเอียดอาจแตกต่างจากสินค้าจริง</figcaption>
         </figure>
+        <p class="hero-text">SayCheer คือโฟโต้บูธบริการตนเองสำหรับคาเฟ่ ร้านอาหาร โรงแรม และงานอีเวนต์ เพื่อนและครอบครัวถ่ายรูปรวมกัน ตกแต่งภาพ และรับการ์ดที่พิมพ์ออกมากลับบ้าน</p>
+        <div class="hero-cta">
+          <div class="btns">
+            <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer&amp;body=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%B2%E0%B8%99%3A%0D%0A%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%3A%0D%0A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%20%28%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B9%8C%29%3A%0D%0A%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B8%E0%B8%93%3A">ขอใบเสนอราคา</a>
+            <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">ลองใช้เดโม</a>
+            <p class="small">เดโมทำงานบนเบราว์เซอร์ด้วยเงินทดลอง</p></div>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="how">
+    <section class="band band-ink band-work">
+      <div class="wrap">
+        <h2>ใช้งานได้แล้ววันนี้</h2>
+        <ul class="work">
+          <li>รูปแบบการ์ด 1 ถึง 4 ภาพ</li>
+          <li>กล้องพร้อมนับถอยหลัง</li>
+          <li>จัดเรียงและตกแต่งได้ทุกใบ</li>
+          <li>แสดงความคืบหน้าการพิมพ์บนหน้าจอ</li>
+          <li>หน้าจอภาษาไทย มีตัวเลือกภาษาอังกฤษ</li>
+        </ul>
+        <p class="small">ทั้งหมดนี้ใช้งานได้ในเดโมจริง</p>
+      </div>
+    </section>
+    <section class="how" id="how">
       <div class="wrap">
         <h2>ใช้งานอย่างไร</h2>
         <p class="hand hand-th">ง่าย ๆ หกขั้นตอน</p>
-        <ol class="steps">
-          <li><h3>เลือก</h3><p>เลือกรูปแบบการ์ดและจำนวนที่ต้องการพิมพ์</p></li>
-          <li><h3>ชำระเงิน</h3><p>สแกน QR พร้อมเพย์ เพิ่มการชำระเงินนี้ให้ตู้ของคุณได้ ส่วนเดโมใช้เงินทดลอง</p></li>
-          <li><h3>โพสต์ท่า</h3><p>กล้องแสดงภาพสดและนับถอยหลังก่อนถ่ายภาพ</p></li>
-          <li><h3>จัดเรียง</h3><p>ลากรูปไปวางบนการ์ด</p></li>
-          <li><h3>ตกแต่ง</h3><p>เพิ่มข้อความ ลายเส้น สติกเกอร์ และฟิลเตอร์ให้ทุกใบ</p></li>
-          <li><h3>พิมพ์</h3><p>การ์ดพิมพ์ออกมาที่ตู้</p></li>
+        <ol class="rows">
+        <li class="row">
+          <span class="num" aria-hidden="true">01</span>
+          <div class="row-text"><h3>เลือก</h3><p>เลือกรูปแบบการ์ดและจำนวนที่ต้องการพิมพ์</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">02</span>
+          <div class="row-text"><h3>ชำระเงิน</h3><p>สแกน QR พร้อมเพย์ เพิ่มการชำระเงินนี้ให้ตู้ของคุณได้ ส่วนเดโมใช้เงินทดลอง</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">03</span>
+          <div class="row-text"><h3>โพสต์ท่า</h3><p>กล้องแสดงภาพสดและนับถอยหลังก่อนถ่ายภาพ</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">04</span>
+          <div class="row-text"><h3>จัดเรียง</h3><p>ลากรูปไปวางบนการ์ด</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">05</span>
+          <div class="row-text"><h3>ตกแต่ง</h3><p>เพิ่มข้อความ ลายเส้น สติกเกอร์ และฟิลเตอร์ให้ทุกใบ</p></div>
+        </li>
+        <li class="row">
+          <span class="num" aria-hidden="true">06</span>
+          <div class="row-text"><h3>พิมพ์</h3><p>การ์ดพิมพ์ออกมาที่ตู้</p></div>
+        </li>
         </ol>
       </div>
     </section>
-    <section class="why">
+    <section class="why" id="why">
       <div class="wrap">
         <h2>ทำไมต้อง SayCheer</h2>
         <p class="hand hand-th">ทำมาเพื่อสถานที่ที่คนรัก</p>
-        <div class="cards">
-          <div class="card"><h3>ตกแต่งได้ทุกใบ</h3><p>ข้อความ ลายเส้น สติกเกอร์ และฟิลเตอร์ ได้กับทุกการ์ด</p></div>
-          <div class="card"><h3>หน้าตาเป็นของร้านคุณ</h3><p>เพิ่มชื่อ โลโก้ และสีของร้านคุณได้</p></div>
-          <div class="card"><h3>จ่ายด้วยพร้อมเพย์</h3><p>เพิ่มการชำระเงินผ่าน QR พร้อมเพย์ได้</p></div>
-          <div class="card"><h3>ออกแบบสำหรับกลุ่ม</h3><p>ออกแบบมาสำหรับ 1 ถึง 10 คนต่อรอบ</p></div>
+        <div class="reasons">
+          <div class="reason"><h3>ตกแต่งได้ทุกใบ</h3><p>ข้อความ ลายเส้น สติกเกอร์ และฟิลเตอร์ ได้กับทุกการ์ด</p></div>
+          <div class="reason"><h3>หน้าตาเป็นของร้านคุณ</h3><p>เพิ่มชื่อ โลโก้ และสีของร้านคุณได้</p></div>
+          <div class="reason"><h3>จ่ายด้วยพร้อมเพย์</h3><p>เพิ่มการชำระเงินผ่าน QR พร้อมเพย์ได้</p></div>
+          <div class="reason"><h3>ออกแบบสำหรับกลุ่ม</h3><p>ออกแบบมาสำหรับ 1 ถึง 10 คนต่อรอบ</p></div>
         </div>
+        <h3 class="fit-h">SayCheer เหมาะกับที่ไหน</h3>
+        <p class="fit">คาเฟ่ · ร้านอาหาร · ผับและบาร์ · งานแต่งงาน · งานนิทรรศการและอีเวนต์ · โรงแรมและรีสอร์ต · สปา · สถานที่ไลฟ์สไตล์</p>
       </div>
     </section>
-    <section class="fit">
+    <section class="faq" id="faq">
       <div class="wrap">
-        <h2>SayCheer เหมาะกับที่ไหน</h2>
-        <ul class="chips">
-          <li>คาเฟ่</li>
-          <li>ร้านอาหาร</li>
-          <li>ผับและบาร์</li>
-          <li>งานแต่งงาน</li>
-          <li>งานนิทรรศการและอีเวนต์</li>
-          <li>โรงแรมและรีสอร์ต</li>
-          <li>สปา</li>
-          <li>สถานที่ไลฟ์สไตล์</li>
-        </ul>
+        <h2>คำถามที่พบบ่อย</h2>
+        <details class="qa"><summary>การ์ดมีขนาดเท่าไร</summary><p>การ์ดออกแบบเป็นโปสการ์ดขนาด 6 x 4 นิ้วทุกรูปแบบ</p></details>
+        <details class="qa"><summary>ถ่ายรูปรวมได้กี่คน</summary><p>SayCheer ออกแบบมาสำหรับกลุ่ม 1 ถึง 10 คน</p></details>
+        <details class="qa"><summary>ลูกค้าชำระเงินอย่างไร</summary><p>สแกน QR พร้อมเพย์ เพิ่มการชำระเงินนี้ให้ตู้ของคุณได้ ส่วนเดโมใช้เงินทดลอง</p></details>
+        <details class="qa"><summary>รูปถ่ายถูกเก็บไว้หรือไม่</summary><p>รูปอยู่ในหน่วยความจำของตู้ระหว่างใช้งานเท่านั้น และถูกลบเมื่อจบรอบ</p></details>
+        <details class="qa"><summary>หน้าจอใช้ภาษาอะไร</summary><p>ภาษาไทย และมีตัวเลือกภาษาอังกฤษ</p></details>
+        <details class="qa"><summary>ปรับให้เข้ากับร้านของฉันได้ไหม</summary><p>เพิ่มชื่อ โลโก้ และสีของร้านคุณได้</p></details>
       </div>
     </section>
-    <section class="try">
+    <section class="band band-ink band-cta">
       <div class="wrap">
-        <h2>ลองเล่น แล้วคุยกับเรา</h2>
-        <p>เปิดเดโมแล้วถ่ายการ์ดทดลองด้วยตัวเอง บอกเราเกี่ยวกับสถานที่ของคุณ แล้วเราจะส่งใบเสนอราคาทางอีเมล ขอรายละเอียดอุปกรณ์ได้ตามต้องการ</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer&amp;body=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%B2%E0%B8%99%3A%0D%0A%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%3A%0D%0A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%20%28%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B9%8C%29%3A%0D%0A%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B8%E0%B8%93%3A">ขอใบเสนอราคา</a>
-          <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">ลองใช้เดโม</a>
-          <p class="small">เดโมทำงานบนเบราว์เซอร์ด้วยเงินทดลอง</p></div>
-        </div>
+        <h2>พร้อมสำหรับสถานที่ของคุณหรือยัง?</h2>
+        <p class="cta-line">บอกเราว่าจะวางตู้ที่ไหน แล้วเราจะส่งใบเสนอราคาทางอีเมล เปิดเดโมลองถ่ายการ์ดทดลองก่อนได้</p>
+        <div class="btns btns-dark">
+            <a class="btn btn-primary" href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer&amp;body=%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B9%80%E0%B8%A0%E0%B8%97%E0%B8%AA%E0%B8%96%E0%B8%B2%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%87%E0%B8%B2%E0%B8%99%3A%0D%0A%E0%B9%80%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%87%3A%0D%0A%E0%B8%A7%E0%B8%B1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%20%28%E0%B8%96%E0%B9%89%E0%B8%B2%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%87%E0%B8%B2%E0%B8%99%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B9%8C%29%3A%0D%0A%E0%B8%8A%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%80%E0%B8%9A%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%97%E0%B8%A3%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B8%AD%E0%B8%B5%E0%B9%80%E0%B8%A1%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%84%E0%B8%B8%E0%B8%93%3A">ขอใบเสนอราคา</a>
+            <div class="demo"><a class="btn btn-outline" href="https://saycheer-demo.csmittee.workers.dev" target="_blank" rel="noopener">ลองใช้เดโม</a>
+            <p class="small">เดโมทำงานบนเบราว์เซอร์ด้วยเงินทดลอง</p></div>
+          </div>
+        <p class="small">ขอรายละเอียดอุปกรณ์ได้ตามต้องการ</p>
       </div>
     </section>
   </main>
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>SayCheer เป็นผลิตภัณฑ์ของ Janishammer (Janis Hammer Co., Ltd) ชลบุรี ประเทศไทย</p>
-      <p class="small">© 2026 Janishammer</p>
+  <footer class="foot">
+    <div class="wrap foot-grid">
+      <div class="foot-brand">
+        <a class="wordmark" href="/th/" aria-label="SayCheer"><span class="w-say">Say</span><span class="w-cheer">Cheer</span><span class="w-spark" aria-hidden="true">+</span></a>
+        <p>by Janishammer</p>
+        <p class="small">SayCheer เป็นผลิตภัณฑ์ของ Janishammer (Janis Hammer Co., Ltd) ชลบุรี ประเทศไทย</p>
+      </div>
+      <div class="foot-col">
+        <h3>สำรวจ</h3>
+        <a href="#how">ใช้งานอย่างไร</a><a href="#why">ทำไมต้อง SayCheer</a><a href="#faq">คำถามที่พบบ่อย</a>
+      </div>
+      <div class="foot-col">
+        <h3>ติดต่อ</h3>
+        <a href="mailto:info@janishammer.com?subject=%E0%B8%82%E0%B8%AD%E0%B9%83%E0%B8%9A%E0%B9%80%E0%B8%AA%E0%B8%99%E0%B8%AD%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%20SayCheer">info@janishammer.com</a>
+        <a href="https://janishammer.com/th/">janishammer.com</a>
+      </div>
     </div>
+    <div class="wrap foot-bottom"><p class="small">© 2026 Janishammer</p></div>
   </footer>
 </body>
 </html>
