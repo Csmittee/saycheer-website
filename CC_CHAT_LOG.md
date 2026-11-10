@@ -1,9 +1,19 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.4 — 2026-11-10
-> Changes: CC_SESSION_saycheer_design_v3 entry added
-> Previous: Version 1.3 — 2026-11-10 (CC_SESSION_saycheer_seo_v1 entry added). Earlier: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
+> Version 1.5 — 2026-11-10
+> Changes: CC_SESSION_saycheer_schema_fix_v1 entry added
+> Previous: Version 1.4 — 2026-11-10 (CC_SESSION_saycheer_design_v3 entry added). Earlier: Version 1.3 — 2026-11-10 (CC_SESSION_saycheer_seo_v1 entry added). Earlier: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
 
 ---
+## 2026-11-10 — CC_SESSION_saycheer_schema_fix_v1
+**Did:** Schema fix, 5 files: index.html + th/index.html (the JSON-LD block only: Organization replaced by LocalBusiness, @id `#business`, name, url, description and image copied unchanged, address = PostalAddress with addressLocality `Chonburi` and addressCountry `TH` and nothing else), CLAUDE.md (constraint 4 = the only public contact is the mailto address; host live; scripts line = Google Fonts and Google Analytics; launch line updated), PROJECT_STATE, this log. Head diff = only the JSON-LD block; the body of both pages is byte-identical; both blocks parse, one `address` each. Raw-source search zero matches; canonical 1, hreflang trio, GA4 id 2 per page (script address and config line), gtag.js tag 1 — all unchanged. Footer line: EN "Chonburi, Thailand", TH names ชลบุรี (not edited).
+**Updated:** NONE (no rules in this repo)
+**New files:** NONE
+**Pending Chat verify:** owner QA steps 1–3 on the site PR after the Cloudflare deploy shows Success. Step 3 (Google Rich Results test) is done outside the site.
+**Flags:** QA CLOSE-OUT: CC_SESSION_saycheer_seo_v1 → DONE (verified live 2026-11-10 — owner QA passed, per Chat). SEO-3 PARTIAL DEBT (LocalBusiness has city only). Thai wording checked by the owner ("nothing wrong, it is good to go"). COOKIE NOTICE still OPEN. Extra tidy inside CLAUDE.md (a file on the list): the scripts line and the "stay noindex" line were out of date after the launch and were brought up to date. WORKER CHANGE NOT REQUIRED. INJECTOR UNTOUCHED. NOT VERIFIED LIVE — owner QA steps 1–3 (CC cannot open the live site).
+**Previous PR QA:** saycheer-website#4 PASS (read by Chat via REST, per Section 0; CC did not re-read); saycheer-website#5 (look v3) PENDING — owner not yet reported
+**Owner QA:** this order's site PR PENDING (steps 1–3)
+---
+
 ## 2026-11-10 — CC_SESSION_saycheer_design_v3
 **Did:** Look v3, 5 files: style.css (rewritten), index.html + th/index.html (body only: `.bg` layer with 12 splash words, hero panel wrapper, English bar button label "Get a quote", button pairs with the demo line moved under the pair), PROJECT_STATE, this log. `<head>` of both pages byte-identical (diff empty); JSON-LD, GA4, canonical, hreflang, robots, sitemap, `_headers`, 404 untouched. Measured after (Chromium 390 x 844 and 1280 x 800): bar controls equal height (44 / 48px), hero and closing button pairs equal (213 x 52 and 274 x 52 at 1280), five Working today tiles equal (180.4 x 105.8), reasons equal per row, step cards min 150px; 23 glass boxes in the page, at most 11 on screen at once; 12 splash words (7 below 640px), no overlap at 9 screen sizes (360 to 1920 wide), widest word 33% of the width; worst-case contrast 4.72:1 (peach on dark glass), all others 9.2 or better; both fallbacks tested (no glass support; reduced transparency forced) = solid cream / white / ink, 0 backdrop-filter elements. Raw-source search zero matches; HTML 201 lines each, style.css 225.
 **Updated:** NONE (no rules in this repo)
