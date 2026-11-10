@@ -182,7 +182,9 @@ html[lang="th"] .h1-line { line-height: 1.25; letter-spacing: 0; }
 .foot-col h3 { font-size: 1rem; letter-spacing: 0.06em; margin-bottom: 12px; color: var(--peach); }
 .foot-col a { display: block; padding: 6px 0; text-decoration: none; }
 .foot-col a:hover { text-decoration: underline; }
-.foot-bottom { margin-top: 32px; border-top: 1px solid rgba(251, 247, 242, 0.25); padding-top: 16px; }
+.foot-bottom { margin-top: 32px; border-top: 1px solid rgba(251, 247, 242, 0.25); padding-top: 16px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; column-gap: 20px; }
+.foot-bottom p { margin: 0; }
+.cookie-open { font: inherit; font-size: 0.9375rem; color: inherit; background: none; border: 0; padding: 6px 4px; min-height: 44px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 
 @media (min-width: 520px) {
   .lang.lang-bar { display: inline-flex; }
@@ -229,6 +231,19 @@ html[lang="th"] .h1-line { line-height: 1.25; letter-spacing: 0; }
   .wordmark { font-size: 1.1rem; }
   .menu summary { min-width: 72px; padding: 0 12px; }
   .btn.btn-bar { padding: 0 12px; }
+}
+
+/* cookie choice bar (built by consent.js): glass like the other boxes, solid fallback through the same custom properties */
+.cookie-bar { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); z-index: 60; width: calc(100% - 24px); max-width: 960px; display: flex; flex-direction: column; gap: 12px; padding: 16px 20px; border-radius: 24px; color: var(--ink); background: var(--box-strong, #fff); border: 1px solid var(--box-line, var(--line)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, 0 12px 32px rgba(31, 45, 58, 0.25)); }
+.cookie-bar[hidden] { display: none; }
+.cookie-text { margin: 0; font-size: 1rem; line-height: 1.5; }
+.cookie-text a { font-weight: 600; text-decoration: underline; text-decoration-color: var(--peach); text-underline-offset: 3px; }
+.cookie-btns { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.cookie-bar .cookie-btn { min-height: 48px; width: 100%; padding: 10px 20px; font: inherit; font-weight: 600; color: var(--ink); background: transparent; cursor: pointer; }
+@media (min-width: 520px) {
+  .cookie-bar { flex-direction: row; align-items: center; gap: 20px; }
+  .cookie-text { flex: 1 1 auto; }
+  .cookie-btns { flex: 0 0 auto; grid-template-columns: repeat(2, 140px); }
 }
 
 /* frosted glass ("crystal"): switched on only where backdrop-filter and color-mix both work.
