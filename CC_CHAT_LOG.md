@@ -1,8 +1,17 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.2 — 2026-11-10
-> Changes: CC_SESSION_saycheer_design_v2 entry added
-> Previous: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
+> Version 1.3 — 2026-11-10
+> Changes: CC_SESSION_saycheer_seo_v1 entry added
+> Previous: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
 
+---
+## 2026-11-10 — CC_SESSION_saycheer_seo_v1
+**Did:** SEO launch, 6 files: index.html + th/index.html (robots noindex line removed; Organization JSON-LD and GA4 tag `G-HB2ZXSZY0Z` added in the head; nothing else in the head or body changed), robots.txt (Sitemap line), NEW sitemap.xml (hand-written, 2 URLs, hreflang trio, no lastmod), PROJECT_STATE, this log. Checks: head diff = only the removed line and the added blocks; raw-source search for `${`, `{{`, `undefined`, `[object` = zero matches; JSON-LD parses in both pages; sitemap parses, 2 URLs equal the canonicals; one canonical and the same hreflang trio per page; 404.html still noindex; `_headers` has no X-Robots-Tag. Lines: index 185, th/index 185, robots 3, style.css 165 (HTML-1 ok). SEO-4: title EN 57 / TH 56, description EN 150 / TH 141 — all pass, not edited.
+**Updated:** NONE (no rules in this repo)
+**New files:** sitemap.xml
+**Pending Chat verify:** owner QA steps 1–9 on the site PR after the Cloudflare deploy shows Success. Step 3: the page source holds `G-HB2ZXSZY0Z` twice (script address and config line) and `application/ld+json` once.
+**Flags:** WF-7 amendment (SEO-8, in central). NEW THIRD-PARTY RESOURCE: Google Analytics (SEC-5 approved list, owner gave the ID; a measurement ID is public, not a secret). SEO-3 DEBT (Organization used, LocalBusiness needs private data). COOKIE NOTICE OPEN (owner decision, next small order; no consent wording written). THAI DRAFT INDEXED. Report only: `mailto:` quotation address already on both pages (page v1) vs the card's "no email" line. WORKER CHANGE NOT REQUIRED. INJECTOR UNTOUCHED. NOT VERIFIED LIVE — owner QA steps 1–9 (CC cannot open the live site).
+**Previous PR QA:** saycheer-website#3 PASS (per Chat's Section 0 reading; CC did not re-read)
+**Owner QA:** this order's site PR PENDING (steps 1–9)
 ---
 
 ## 2026-11-10 — CC_SESSION_saycheer_design_v2

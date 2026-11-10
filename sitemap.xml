@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://saycheer.janishammer.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saycheer.janishammer.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://saycheer.janishammer.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saycheer.janishammer.com/"/>
+  </url>
+  <url>
+    <loc>https://saycheer.janishammer.com/th/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://saycheer.janishammer.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://saycheer.janishammer.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://saycheer.janishammer.com/"/>
+  </url>
+</urlset>
