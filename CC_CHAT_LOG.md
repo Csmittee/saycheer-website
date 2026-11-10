@@ -1,9 +1,19 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.3 — 2026-11-10
-> Changes: CC_SESSION_saycheer_seo_v1 entry added
-> Previous: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
+> Version 1.4 — 2026-11-10
+> Changes: CC_SESSION_saycheer_design_v3 entry added
+> Previous: Version 1.3 — 2026-11-10 (CC_SESSION_saycheer_seo_v1 entry added). Earlier: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
 
 ---
+## 2026-11-10 — CC_SESSION_saycheer_design_v3
+**Did:** Look v3, 5 files: style.css (rewritten), index.html + th/index.html (body only: `.bg` layer with 12 splash words, hero panel wrapper, English bar button label "Get a quote", button pairs with the demo line moved under the pair), PROJECT_STATE, this log. `<head>` of both pages byte-identical (diff empty); JSON-LD, GA4, canonical, hreflang, robots, sitemap, `_headers`, 404 untouched. Measured after (Chromium 390 x 844 and 1280 x 800): bar controls equal height (44 / 48px), hero and closing button pairs equal (213 x 52 and 274 x 52 at 1280), five Working today tiles equal (180.4 x 105.8), reasons equal per row, step cards min 150px; 23 glass boxes in the page, at most 11 on screen at once; 12 splash words (7 below 640px), no overlap at 9 screen sizes (360 to 1920 wide), widest word 33% of the width; worst-case contrast 4.72:1 (peach on dark glass), all others 9.2 or better; both fallbacks tested (no glass support; reduced transparency forced) = solid cream / white / ink, 0 backdrop-filter elements. Raw-source search zero matches; HTML 201 lines each, style.css 225.
+**Updated:** NONE (no rules in this repo)
+**New files:** NONE
+**Pending Chat verify:** owner QA steps 1–5 on the site PR after the Cloudflare deploy shows Success. The owner judges "not messy": CC cannot see the live page or judge by eye (the hero picture and Google Fonts are blocked in the sandbox, so the screenshots had no hero picture).
+**Flags:** WF-3 note: one domain (CSS and HTML look only). ONE wording change: English bar button "Get a quote". NO script added. Deviations: (1) `0.9rem` is 14.4px, so the small text is 0.9375rem (15px); (2) the 40%-of-screen rule makes phone splashes about 25px, below the 2.5rem asked, and at 800px wide all splashes are 52px (width cap); (3) the language link shows in the bar from 520px wide (it does not fit beside Menu and the quote button on a phone; below that it is in the menu panel); (4) on phones the hero picture sits under the text panel (the wrapper replaces the v2 source order); (5) text below 15px: only the decorative "+" of the wordmark (12.5px, aria-hidden); peach numerals and FAQ markers stay decorative as in v2; (6) reasons stacked on phones differ in height (equal per row from 800px). WORKER CHANGE NOT REQUIRED. INJECTOR UNTOUCHED. NOT VERIFIED LIVE — owner QA steps 1–5.
+**Previous PR QA:** saycheer-website#4 (SEO launch) PENDING — QA CARRY-OVER (owner decides to tick or waive); no FAIL in the ledger
+**Owner QA:** this order's site PR PENDING (steps 1–5)
+---
+
 ## 2026-11-10 — CC_SESSION_saycheer_seo_v1
 **Did:** SEO launch, 6 files: index.html + th/index.html (robots noindex line removed; Organization JSON-LD and GA4 tag `G-HB2ZXSZY0Z` added in the head; nothing else in the head or body changed), robots.txt (Sitemap line), NEW sitemap.xml (hand-written, 2 URLs, hreflang trio, no lastmod), PROJECT_STATE, this log. Checks: head diff = only the removed line and the added blocks; raw-source search for `${`, `{{`, `undefined`, `[object` = zero matches; JSON-LD parses in both pages; sitemap parses, 2 URLs equal the canonicals; one canonical and the same hreflang trio per page; 404.html still noindex; `_headers` has no X-Robots-Tag. Lines: index 185, th/index 185, robots 3, style.css 165 (HTML-1 ok). SEO-4: title EN 57 / TH 56, description EN 150 / TH 141 — all pass, not edited.
 **Updated:** NONE (no rules in this repo)
