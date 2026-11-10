@@ -57,8 +57,8 @@ section { padding: 2.5rem 0; }
 /* boxes: solid fallback here; glass values come from the custom properties set in the @supports block */
 .bar { position: sticky; top: 0; z-index: 50; background: var(--bar-bg, var(--cream)); border-bottom: 1px solid var(--box-line, var(--line)); }
 .bar::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--box-strong, transparent); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); }
-.hero-panel, .row, .reason, .fit, .qa { background: var(--box-light, #fff); border: 1px solid var(--box-line, var(--line)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, none); }
-.hero-pic, .menu-panel { background: var(--box-strong, #fff); border: 1px solid var(--box-line, var(--line)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, none); }
+.hero-panel, .row, .reason, .fit, .qa, .pain-text, .pain-card { background: var(--box-light, #fff); border: 1px solid var(--box-line, var(--line)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, none); }
+.hero-pic, .pain-pic, .menu-panel { background: var(--box-strong, #fff); border: 1px solid var(--box-line, var(--line)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, none); }
 .band-ink > .wrap, .foot { background: var(--box-dark, var(--ink)); border: 1px solid var(--box-line-dark, var(--ink)); -webkit-backdrop-filter: var(--box-blur, none); backdrop-filter: var(--box-blur, none); box-shadow: var(--box-shadow, none); }
 
 /* top bar: language link, Menu button and quote button share height, shape and text size */
@@ -128,6 +128,21 @@ html[lang="th"] .h1-line { line-height: 1.25; letter-spacing: 0; }
 .work li { display: flex; align-items: center; min-height: 92px; font-size: 1.4rem; font-weight: 600; line-height: 1.3; padding: 16px 0; border-top: 1px solid rgba(251, 247, 242, 0.25); }
 .work li::before { content: "+"; color: var(--peach); font-weight: 700; margin-right: 12px; }
 
+/* pain-points block under the hero (look v3 glass boxes reused; the picture frame does not move) */
+.pain-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.pain-grid > * { min-width: 0; }
+.pain-text { padding: 24px 22px; border-radius: 28px; }
+.pain-text h2 { margin-bottom: 16px; }
+.pain-list { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 10px; }
+.pain-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 1.05rem; line-height: 1.45; text-wrap: balance; }
+.pain-list li::before { content: "?"; flex: 0 0 1.7em; height: 1.7em; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--peach); color: var(--ink); font-weight: 700; font-size: 0.95rem; line-height: 1; }
+.pain-right { margin: 0; text-align: center; font-size: clamp(1.7rem, 4.6vw, 2.2rem); line-height: 1.2; text-wrap: balance; text-decoration: underline; text-decoration-color: var(--peach); text-decoration-thickness: 0.12em; text-underline-offset: 0.18em; }
+.pain-pic { margin: 0; padding: 10px; border-radius: 32px; overflow: hidden; }
+.pain-pic img { width: 100%; height: auto; display: block; border-radius: 24px; }
+.pain-card { padding: 22px 24px; border-radius: 28px; }
+.pain-card h3 { font-size: 1.25rem; margin-bottom: 8px; }
+.pain-card p { margin: 0; text-wrap: balance; }
+
 /* how it works: alternating glass rows with equal minimum height */
 .rows { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 16px; }
 .row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 22px 24px; min-height: 150px; border-radius: 28px; align-items: center; }
@@ -179,6 +194,10 @@ html[lang="th"] .h1-line { line-height: 1.25; letter-spacing: 0; }
   section { padding: 3rem 0; }
 }
 @media (min-width: 800px) {
+  .pain-grid { grid-template-columns: minmax(0, 55fr) minmax(0, 45fr); grid-template-areas: "text pic" "card pic"; column-gap: 24px; align-items: start; }
+  .pain-text { grid-area: text; }
+  .pain-pic { grid-area: pic; }
+  .pain-card { grid-area: card; }
   .sp { font-size: min(var(--s), 6.5vw, 12vh); }
   .row { grid-template-columns: 180px minmax(0, 1fr); gap: 32px; padding: 24px 32px; }
   .row:nth-child(even) { grid-template-columns: minmax(0, 1fr) 180px; }
