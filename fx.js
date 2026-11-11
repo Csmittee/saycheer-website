@@ -1,18 +1,21 @@
-/* SayCheer motion: hero printer sequence (once per visit), CHEERS soap bubbles while scrolling, smoothness guard.
+/* SayCheer motion: hero printer sequence (first run once per visit, then a play button and a 5 s idle replay),
+   CHEERS soap bubbles in an endless loop, smoothness guard.
    Vanilla JS, plain strings only (no template literals), no library, no globals. First-party, builds no link or address.
-   Storage keys (sessionStorage, no personal data): sc_hero_v1, sc_cheers_v1, sc_still_v1.
-   CC_SESSION_saycheer_motion_seo_v1, 2026-11-12. */
+   Storage keys (sessionStorage, no personal data): sc_hero_v1, sc_still_v1.
+   CC_SESSION_saycheer_motion_seo_v1, 2026-11-12; follow-up CC_SESSION_saycheer_replay_loop_v1, 2026-11-12. */
 (function () {
   'use strict';
 
   var root = document.documentElement;
   var K_HERO = 'sc_hero_v1';
-  var K_CHEERS = 'sc_cheers_v1';
   var K_STILL = 'sc_still_v1';
   var isThai = String(root.lang || '').toLowerCase().indexOf('th') === 0;
   var SKIP_LABEL = isThai ? 'ข้าม' : 'Skip';
   var LETTERS = ['C', 'H', 'E', 'E', 'R', 'S'];
-  var MAX_RUNS = 3;
+  var IDLE_MS = 5000;
+  var IDLE_POLL_MS = 500;
+  var CHEERS_RETRY_MS = 5000;
+  var PLAY_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>';
 
   // Original cartoon printer (teal body, peach lid, eyes, smile, slot); viewBox 0 0 300 260, the slot is the dark bar near the bottom
   var PRINTER_SVG = [
@@ -34,6 +37,8 @@
   ].join('');
 
   var heroEnded = false;
+  var heroRunning = false;
+  var lastActivity = Date.now();
   var guardStarted = false;
 
   // Changed: sessionStorage read; any storage error counts as "not set" 2026-11-12
@@ -122,8 +127,8 @@
     }
   }
 
-  // ---------- CHEERS bubbles ----------
-  var cheers = { runs: 0, acc: 0, lastY: 0, need: 600, lastRun: 0, running: false, layer: null };
+  // ---------- CHEERS bubbles (endless loop) ----------
+  var cheers = { running: false, layer: null, timer: 0 };
 
   // Changed: true when something on the page says "not now" (hidden tab, cookie bar, open menu, less motion, still mode) 2026-11-12
   function cheersBlocked() {
@@ -194,12 +199,15 @@
     }, delay + rise));
   }
 
-  // Changed: one CHEERS run: count 3, 2, 1 (each fades off), then six rainbow bubbles C H E E R S rise and pop; every node is removed afterwards 2026-11-12
+  // Changed: (re)start the one loop timer; there is never more than one pending 2026-11-12
+  function scheduleCheers(ms) {
+    if (cheers.timer) { window.clearTimeout(cheers.timer); }
+    cheers.timer = window.setTimeout(tryCheers, ms);
+  }
+
+  // Changed: one CHEERS run: count 3, 2, 1 (each fades off), then six rainbow bubbles C H E E R S rise and pop; every node is removed afterwards, then the next run is planned 4 to 6 s later 2026-11-12
   function runCheers() {
     cheers.running = true;
-    cheers.runs++;
-    cheers.lastRun = Date.now();
-    writeKey(K_CHEERS, String(cheers.runs));
     var where = pickSpot();
     var layer = getLayer();
     var spot = mk('fx-spot', layer);
@@ -230,53 +238,112 @@
         cheers.layer = null;
       }
       cheers.running = false;
-      if (cheers.runs >= MAX_RUNS) { window.removeEventListener('scroll', onScroll); }
+      scheduleCheers(rnd(4000, 6000));
     }, 4300));
   }
 
-  // Changed: passive scroll listener: counts scroll distance, rolls a 50 % chance when armed, respects the 10 s gap and the guards 2026-11-12
-  function onScroll() {
-    var y = window.pageYOffset || 0;
-    cheers.acc += Math.abs(y - cheers.lastY);
-    cheers.lastY = y;
-    if (cheers.running || cheers.acc < cheers.need) { return; }
-    if (cheers.runs > 0 && Date.now() - cheers.lastRun < 10000) { return; }
-    if (cheersBlocked()) { return; }
-    cheers.acc = 0;
-    cheers.need = 700;
-    if (Math.random() < 0.5) { runCheers(); }
+  // Changed: the loop step: never two runs at once, none while the hero sequence runs, retry after 5 s when blocked 2026-11-12
+  function tryCheers() {
+    cheers.timer = 0;
+    if (cheers.running) { return; }
+    if (heroRunning || cheersBlocked()) {
+      scheduleCheers(CHEERS_RETRY_MS);
+      return;
+    }
+    runCheers();
   }
 
-  // Changed: arm the bubbles once the hero sequence ended or was skipped (never with less motion, never beyond 3 runs per visit) 2026-11-12
+  // Changed: start the endless loop once the hero sequence ended or was skipped (never with less motion); first run 4 to 6 s later 2026-11-12
   function armCheers() {
-    var done = parseInt(readKey(K_CHEERS) || '0', 10);
-    if (isNaN(done) || done < 0) { done = 0; }
-    cheers.runs = done;
-    if (reducedMotion() || done >= MAX_RUNS || !document.body.animate) { return; }
-    cheers.lastY = window.pageYOffset || 0;
-    window.addEventListener('scroll', onScroll, { passive: true });
+    if (reducedMotion() || !document.body.animate) { return; }
+    scheduleCheers(rnd(4000, 6000));
   }
 
   // ---------- hero sequence ----------
 
-  // Changed: called once when the hero sequence is over (or was never needed): arm the bubbles, start the smoothness guard 2026-11-12
+  // Changed: true when at least half of the hero picture is inside the viewport 2026-11-12
+  function heroInView() {
+    var pic = document.querySelector('.hero-pic');
+    if (!pic) { return false; }
+    var r = pic.getBoundingClientRect();
+    var w = r.right - r.left;
+    var h = r.bottom - r.top;
+    if (w <= 0 || h <= 0) { return false; }
+    var vw = document.documentElement.clientWidth;
+    var vh = window.innerHeight;
+    var ox = Math.min(r.right, vw) - Math.max(r.left, 0);
+    var oy = Math.min(r.bottom, vh) - Math.max(r.top, 0);
+    if (ox <= 0 || oy <= 0) { return false; }
+    return (ox * oy) / (w * h) >= 0.5;
+  }
+
+  // Changed: any visitor activity restarts the 5 s wait for the idle replay 2026-11-12
+  function noteActivity() {
+    lastActivity = Date.now();
+  }
+
+  // Changed: idle replay check: waits until IDLE_MS of stillness, then plays the sequence when the page is visible, focused, the picture is half in view and nothing blocks 2026-11-12
+  function idleCheck() {
+    var still = Date.now() - lastActivity;
+    if (still < IDLE_MS) {
+      window.setTimeout(idleCheck, Math.max(250, IDLE_MS - still));
+      return;
+    }
+    var ok = !heroRunning && !document.hidden && document.hasFocus() && !reducedMotion() && !root.classList.contains('bg-still') && heroInView();
+    if (ok) {
+      runHero();
+      window.setTimeout(idleCheck, IDLE_MS);
+    } else {
+      window.setTimeout(idleCheck, IDLE_POLL_MS);
+    }
+  }
+
+  // Changed: watch for activity (passive) and start the idle replay check; called once 2026-11-12
+  function armIdle() {
+    if (reducedMotion()) { return; }
+    var events = ['mousemove', 'pointerdown', 'touchstart', 'keydown', 'scroll'];
+    for (var i = 0; i < events.length; i++) {
+      window.addEventListener(events[i], noteActivity, { passive: true });
+    }
+    lastActivity = Date.now();
+    window.setTimeout(idleCheck, IDLE_MS);
+  }
+
+  // Changed: called when a hero sequence is over (or was never needed): arm the bubbles, the idle replay and the guard, once 2026-11-12
   function heroDone() {
     if (heroEnded) { return; }
     heroEnded = true;
     armCheers();
+    armIdle();
     startGuard();
   }
 
-  // Changed: the printer prints the hero picture: cover is the CSS layer on .hero-pic, the stage holds printer, number, flash and card 2026-11-12
-  function startHero() {
+  // Changed: the replay button: one small round button in a picture-sized box inside .hero-pic, created once, shown by CSS only when no sequence runs 2026-11-12
+  function buildPlay() {
+    var pic = document.querySelector('.hero-pic');
+    if (!pic || !pic.animate || reducedMotion()) { return; }
+    var box = mk('hp-playbox', pic);
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'hp-play';
+    b.setAttribute('aria-label', isThai ? 'เล่นอีกครั้ง' : 'Replay');
+    b.innerHTML = PLAY_SVG;
+    b.addEventListener('click', runHero);
+    box.appendChild(b);
+  }
+
+  // Changed: the printer prints the hero picture, any number of times: cover is the CSS layer on .hero-pic (class hp on html), the stage holds printer, number, flash and card 2026-11-12
+  function runHero() {
+    if (heroRunning) { return; }
     var pic = document.querySelector('.hero-pic');
     var img = pic ? pic.querySelector('img') : null;
-    if (!root.classList.contains('hp')) { heroDone(); return; }
     if (!pic || !img || !pic.animate || reducedMotion()) {
       root.classList.remove('hp');
       heroDone();
       return;
     }
+    heroRunning = true;
+    root.classList.add('hp');
 
     var stage = null;
     var skip = null;
@@ -284,16 +351,19 @@
     var finished = false;
     var started = false;
 
-    // Changed: end the sequence (finished or skipped): remove the nodes, uncover the picture, remember it was played 2026-11-12
+    // Changed: end the sequence (finished or skipped): remove the nodes, uncover the picture, remember it was played, restart the idle wait 2026-11-12
     function finish(played) {
       if (finished) { return; }
       finished = true;
       for (var t = 0; t < timers.length; t++) { window.clearTimeout(timers[t]); }
       document.removeEventListener('keydown', onKey);
+      img.removeEventListener('load', begin);
       if (stage && stage.parentNode) { stage.parentNode.removeChild(stage); }
       if (skip && skip.parentNode) { skip.parentNode.removeChild(skip); }
       root.classList.remove('hp');
       if (played) { writeKey(K_HERO, '1'); }
+      heroRunning = false;
+      lastActivity = Date.now();
       heroDone();
     }
 
@@ -386,11 +456,12 @@
     }
   }
 
-  // Changed: start: bg-still memory first, then the hero sequence 2026-11-12
+  // Changed: start: bg-still memory, the replay button, then the first hero run only when the head snippet set class hp 2026-11-12
   function init() {
     try {
       if (readKey(K_STILL) === '1') { root.classList.add('bg-still'); }
-      startHero();
+      buildPlay();
+      if (root.classList.contains('hp')) { runHero(); } else { heroDone(); }
     } catch (e) {
       root.classList.remove('hp');
     }
