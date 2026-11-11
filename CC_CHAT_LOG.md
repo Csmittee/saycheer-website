@@ -1,8 +1,15 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.9 — 2026-11-10
-> Changes: cookie follow-up entry added
-> Previous: Version 1.8 — 2026-11-10 (CC_SESSION_saycheer_cookie_v1 entry added (site part)). Earlier: Version 1.7 — 2026-11-10 (CC_SESSION_saycheer_painpoints_v1 entry added). Earlier: Version 1.6 — 2026-11-10 (CC_SESSION_saycheer_look_v3b entry added). Earlier: Version 1.5 — 2026-11-10 (CC_SESSION_saycheer_schema_fix_v1 entry added). Earlier: Version 1.4 — 2026-11-10 (CC_SESSION_saycheer_design_v3 entry added). Earlier: Version 1.3 — 2026-11-10 (CC_SESSION_saycheer_seo_v1 entry added). Earlier: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
+> Version 1.10 — 2026-11-11
+> Changes: CC_SESSION_saycheer_favicon_v1 entry added
+> Previous: Version 1.9 — 2026-11-10 (cookie follow-up entry added). Earlier: Version 1.8 — 2026-11-10 (CC_SESSION_saycheer_cookie_v1 entry added (site part)). Earlier: Version 1.7 — 2026-11-10 (CC_SESSION_saycheer_painpoints_v1 entry added). Earlier: Version 1.6 — 2026-11-10 (CC_SESSION_saycheer_look_v3b entry added). Earlier: Version 1.5 — 2026-11-10 (CC_SESSION_saycheer_schema_fix_v1 entry added). Earlier: Version 1.4 — 2026-11-10 (CC_SESSION_saycheer_design_v3 entry added). Earlier: Version 1.3 — 2026-11-10 (CC_SESSION_saycheer_seo_v1 entry added). Earlier: Version 1.2 — 2026-11-10 (CC_SESSION_saycheer_design_v2 entry added). Earlier: Version 1.1 — 2026-11-10 (CC_SESSION_saycheer_page_v1 entry added). Earlier: Version 1.0 — 2026-11-09 (First entry, CC_SESSION_saycheer_site_setup_v1)
 
+---
+## 2026-11-11 — CC_SESSION_saycheer_favicon_v1
+**Did:** 5 files: index.html, th/index.html, 404.html (3 link lines each in `<head>`: svg icon, 32 px png icon, apple-touch-icon; all from Cloudinary `favicon_s_v1`, version 1794396110; diff +3 / -0 per file), PROJECT_STATE, this log. No image, manifest, `/favicon.ico` or script added (CONT-4).
+**Updated:** NONE (no rules in this repo). **New files:** NONE.
+**Pending Chat verify:** owner QA steps 1–3 on the site PR after the Cloudflare deploy shows Success (CC cannot open the live site or the Cloudinary picture: NOT VERIFIED LIVE).
+**Flags:** none. Scan before writing: no icon / manifest lines existed, no image files tracked, all 3 HTML files under 800 lines. Browsers that ask for `/favicon.ico` by default fall back to the links (accepted in the order).
+**Previous PR QA:** saycheer-website#10 PASS, saycheer-website#9 PASS (ledger rows, read at session start). **Owner QA:** this order's site PR PENDING (steps 1–3)
 ---
 ## 2026-11-10 — CC_SESSION_saycheer_cookie_v1 follow-up (outside the original order; owner-approved in chat)
 **Did:** 4 files: _headers (two exact-path rules added, existing headers kept, no wildcard override), style.css (cookie bar slimmer on phones), PROJECT_STATE, this log. Evidence read (WF-9): the owner's screenshots on 2026-11-10 showed the cookie bar and the footer button unstyled at the end of the page (consent.js loaded, style.css old); after a hard refresh the glass bar showed. Measured with real fonts (test only): bar 147px high at 390 wide (was 254px), 126px at 520, 168px at 320; buttons equal and at least 48px high; text 15px; no horizontal scroll; the same 52-check browser run still passes (no request before a choice, Accept, Decline, reload, footer button, storage-blocked).
