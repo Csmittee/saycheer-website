@@ -8,3 +8,6 @@
 
 /consent.js
   Cache-Control: no-cache
+
+/fx.js
+  Cache-Control: no-cache
