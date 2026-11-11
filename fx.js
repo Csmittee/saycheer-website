@@ -1,8 +1,8 @@
-/* SayCheer motion: hero printer sequence (first run once per visit, then a play button and a 5 s idle replay),
+/* SayCheer motion: hero printer sequence (first run once per visit, then a play button and a 30 s idle replay),
    CHEERS soap bubbles in an endless loop, smoothness guard.
    Vanilla JS, plain strings only (no template literals), no library, no globals. First-party, builds no link or address.
    Storage keys (sessionStorage, no personal data): sc_hero_v1, sc_still_v1.
-   CC_SESSION_saycheer_motion_seo_v1, 2026-11-12; follow-up CC_SESSION_saycheer_replay_loop_v1, 2026-11-12. */
+   CC_SESSION_saycheer_motion_seo_v1, 2026-11-12; follow-up CC_SESSION_saycheer_replay_loop_v1, 2026-11-12; CC_SESSION_saycheer_idle30_v1, 2026-11-12. */
 (function () {
   'use strict';
 
@@ -12,7 +12,8 @@
   var isThai = String(root.lang || '').toLowerCase().indexOf('th') === 0;
   var SKIP_LABEL = isThai ? 'ข้าม' : 'Skip';
   var LETTERS = ['C', 'H', 'E', 'E', 'R', 'S'];
-  var IDLE_MS = 5000;
+  // Changed: idle replay wait 5 s to 30 s (owner: 30 sec per run when on focus) 2026-11-12
+  var IDLE_MS = 30000;
   var IDLE_POLL_MS = 500;
   var CHEERS_RETRY_MS = 5000;
   var PLAY_SVG = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>';
@@ -277,7 +278,7 @@
     return (ox * oy) / (w * h) >= 0.5;
   }
 
-  // Changed: any visitor activity restarts the 5 s wait for the idle replay 2026-11-12
+  // Changed: any visitor activity restarts the 30 s wait for the idle replay 2026-11-12
   function noteActivity() {
     lastActivity = Date.now();
   }
