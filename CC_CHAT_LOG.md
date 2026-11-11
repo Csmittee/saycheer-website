@@ -1,8 +1,15 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.11 — 2026-11-12
-> Changes: CC_SESSION_saycheer_motion_seo_v1 entry added; entries older than the newest 3 moved verbatim to docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md (size cap)
-> Previous: Version 1.10 — 2026-11-11 (CC_SESSION_saycheer_favicon_v1 entry added). Earlier versions (1.0 to 1.9): see docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md
+> Version 1.12 — 2026-11-12
+> Changes: CC_SESSION_saycheer_replay_loop_v1 entry added
+> Previous: Version 1.11 — 2026-11-12 (CC_SESSION_saycheer_motion_seo_v1 entry added; older entries moved verbatim to docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md). Earlier versions (1.0 to 1.10): see docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md
 
+---
+## 2026-11-12 — CC_SESSION_saycheer_replay_loop_v1
+**Did:** 4 files here: fx.js (complete replacement, 474 lines: `runHero()` callable many times, replay button in a picture-sized box, idle replay with `IDLE_MS = 5000` and a 50 % in-view check, CHEERS endless loop with a 4 to 6 s timer; `MAX_RUNS`, the `sc_cheers_v1` cap, the 10 s gap and the scroll trigger removed), style.css (`.hp-playbox`, `.hp-play`, reduced-motion line), PROJECT_STATE 1.12, this log 1.12. HTML pages, hero `<img>`, head snippet, `_headers`, consent.js untouched; guards kept (reduced motion, Googlebot skip, 12 s CSS failsafe, `bg-still`).
+**Updated:** NONE. **New files:** NONE.
+**Pending Chat verify:** H1 fx.js read (`IDLE_MS`, in-view check, loop timer, guards). Owner QA steps 1–2 on the site PR after the Cloudflare deploy. Tests (headless Chromium, stand-in picture): play button 44 x 44 px inside the picture's lower right at 390 and 1280 px, hidden while a sequence runs; click replays; idle replay starts about 5 s after the last activity, not while the mouse moves, not when the picture is out of view; CHEERS loop 5 starts in 42 s, gaps 4.0 to 5.7 s, run length 4.3 s, never two at once, silent while the cookie bar or the menu is open, resumes after.
+**Flags:** BEHAVIOUR CHANGE: CHEERS no longer has a cap, so a visitor who stays on the page sees the bubbles again and again (owner decision in this order). The play button sits in a box with the picture's size (not directly in `.hero-pic`) so "lower right" is the picture, not the caption. The cookie notice flag stays: it lists only `sc_consent_v1`; `sc_cheers_v1` is no longer written. Idle replay needs `document.hasFocus()`, so a page in an unfocused window does not replay. NOT VERIFIED LIVE. QA CLOSE-OUT: saycheer-website#12 PASS (steps 1–5 PASS, FAIL empty, ALL DONE ticked, 0 QA-FAIL comments, read with the GitHub API; the one comment is the Cloudflare bot).
+**Previous PR QA:** saycheer-website#12 PASS (closed by CC from ticks). **Owner QA:** this order's site PR PENDING (steps 1–2)
 ---
 ## 2026-11-12 — CC_SESSION_saycheer_motion_seo_v1
 **Did:** 15 paths in the two PRs (order planned 14; +1: the site log archive, size cap): 8 here, 7 in janishammer-central. index.html, th/index.html (new headline, what + why text, title / meta / og / twitter / JSON-LD description, new first FAQ item, head snippet that sets class `hp`, one `fx.js` tag; Thai headline split in `nw` spans with a `<wbr>`), style.css (drift + beat on the 12 words, hero cover and stage, CHEERS layer, 6 `--cheer-n` tokens, reduced-motion, headline sizes lowered), fx.js (NEW, 404 lines: printer sequence about 5.2 s, CHEERS bubbles about 4.3 s, smoothness guard), _headers (`/fx.js` no-cache block, no wildcard), PROJECT_STATE, this log.
