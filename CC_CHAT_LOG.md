@@ -1,8 +1,15 @@
 # CC_CHAT_LOG.md — saycheer-website
-> Version 1.12 — 2026-11-12
-> Changes: CC_SESSION_saycheer_replay_loop_v1 entry added
-> Previous: Version 1.11 — 2026-11-12 (CC_SESSION_saycheer_motion_seo_v1 entry added; older entries moved verbatim to docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md). Earlier versions (1.0 to 1.10): see docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md
+> Version 1.13 — 2026-11-12
+> Changes: CC_SESSION_saycheer_idle30_v1 entry added
+> Previous: Version 1.12 — 2026-11-12 (CC_SESSION_saycheer_replay_loop_v1 entry added). Earlier: Version 1.11 — 2026-11-12 (CC_SESSION_saycheer_motion_seo_v1 entry added; older entries moved verbatim to docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md). Earlier versions (1.0 to 1.10): see docs/archive/CC_CHAT_LOG_ARCHIVE_2026.md
 
+---
+## 2026-11-12 — CC_SESSION_saycheer_idle30_v1
+**Did:** 3 files here: fx.js (`IDLE_MS` 5000 → 30000 with a JS-4 comment; the file header and the `noteActivity` comment say 30 s; diff is 5 lines: the constant, its comment and the three comment lines; nothing else), PROJECT_STATE 1.13, this log 1.13. style.css, both HTML pages, `_headers`, the guards, the CHEERS loop timing (4 to 6 s, retry 5 s) and the cookie notice untouched.
+**Updated:** NONE. **New files:** NONE.
+**Pending Chat verify:** H1 fx.js read (`IDLE_MS = 30000`). Owner QA step 1 on the site PR after the Cloudflare deploy. Test (headless Chromium, stand-in picture): idle replay started 29.3 s after a quiet page (the test began 0.8 s after the previous run ended).
+**Flags:** owner words: "change to 30 sec per run when on focus" (the wait is 30 s of stillness; the window must still be focused, `document.hasFocus()`, as before). NOT VERIFIED LIVE. QA CLOSE-OUT: saycheer-website#13 PASS (steps 1–2 PASS, FAIL empty, ALL DONE ticked, 0 comments, read with the GitHub API).
+**Previous PR QA:** saycheer-website#13 PASS (closed by CC from ticks). **Owner QA:** this order's site PR PENDING (step 1)
 ---
 ## 2026-11-12 — CC_SESSION_saycheer_replay_loop_v1
 **Did:** 4 files here: fx.js (complete replacement, 474 lines: `runHero()` callable many times, replay button in a picture-sized box, idle replay with `IDLE_MS = 5000` and a 50 % in-view check, CHEERS endless loop with a 4 to 6 s timer; `MAX_RUNS`, the `sc_cheers_v1` cap, the 10 s gap and the scroll trigger removed), style.css (`.hp-playbox`, `.hp-play`, reduced-motion line), PROJECT_STATE 1.12, this log 1.12. HTML pages, hero `<img>`, head snippet, `_headers`, consent.js untouched; guards kept (reduced motion, Googlebot skip, 12 s CSS failsafe, `bg-still`).
